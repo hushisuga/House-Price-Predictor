@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>House Price Predictor</title>
+    <style>
+        body { background-color: rgba(0, 0, 0, 0.112) !important;
+        font-family: 'Arial', sans-serif; margin: 0; padding: 0;}
+        .container { max-width: 37.5rem; margin: 3.125rem auto; padding: 1.25rem; background-color: #fff; border-radius: 0.5rem; box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3); }
+        h1 { text-align: center; color: #333; margin-bottom: 1.25rem; }
+        .form-group { margin-bottom: 0.9375rem; }
+        label { display: block; font-weight: bold; color: #555; margin-bottom: 0.3125rem; }
+        select, input { width: 100%; padding: 0.5rem; border: 0.0625rem solid #ddd; border-radius: 0.25rem; box-sizing: border-box; }
+        button { width: 100%; padding: 0.625rem; background-color: #4CAF50; color: white; border: none; border-radius: 0.25rem; cursor: pointer; transition: background-color 0.3s; }
+        button:hover { background-color: #45a049; }
+        #prediction { text-align: center; color: #4CAF50; margin-top: 1.25rem; font-size: 2rem; }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to House Price Predictor</h1>
+      <form method="post" accept-charset="utf-8">
+        <div class="form-group">
+          <label>Select the Location:</label>
+          <select id="location" name="location" required>
+            {% for location in locations %}
+            <option value="{{location}}">{{location}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Enter the BHK:</label>
+          <input type="text" id="bhk" name="bhk" placeholder="Enter BHK">
+        </div>
+        <div class="form-group">
+          <label>Enter the number of bathrooms:</label>
+          <input type="text" id="bath" name="bath" placeholder="Enter Number of bathrooms">
+        </div>
+        <div class="form-group">
+          <label>Enter the Square Feet:</label>
+          <input type="text" id="total_sqft" name="total_sqft" placeholder="Enter the square feet">
+        </div>
+        <div class="form-group">
+          <button type="button" onclick="send_data()">Predict Price</button>
+        </div>
+      </form>
+      <div class="form-group">
+        <span id="prediction"></span>
+      </div>
+    </div>
+    <script>
+      //to not refresh
+      function form_handler(event){
+        event.preventDefault();
+      }
+
+      function send_data(){
+        //whenever submit happens call form_handler
+        document.querySelector('form').addEventListener("submit", form_handler)
+
+        //all the data is stored in fd
+        var fd = new FormData(document.querySelector('form'));
+
+        //created an Http request
+        var xhr = new XMLHttpRequest();
+
+        //linking to send the data to /predict
+        xhr.open('POST', '/predict', true);
+
+        //to print the msg for waiting
+        document.getElementById("prediction").innerHTML = "Wait Predicting price!.....";
+
+        //catching the predicted value
+        xhr.onreadystatechange = function(){
+          if(xhr.readyState == XMLHttpRequest.DONE){
+            document.getElementById('prediction').innerHTML = "Prediction: " + xhr.responseText + " Rupee";
+          }
+        };
+
+        //we pass an empty function
+        xhr.onload = function(){};
+
+        //to send the data
+        xhr.send(fd);
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
+  </body>
+</html>
