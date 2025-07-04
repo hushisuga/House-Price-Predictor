@@ -5,9 +5,8 @@ A machine learning web app that predicts house prices based on key features like
 
 ## 🚀 Demo
 
-🎥 Click the image below to watch the demo video (hosted Google Drive):
-
-[![Watch Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE)
+🎥 Click Watch Demo to watch the demo video (hosted Google Drive):
+[[Watch Demo]](https://drive.google.com/file/d/1e2Z2ydFXxERD9LWyNPlzQNDiNAUGjUqG/view?usp=sharing)
 
 > 💡 _Not deployed live — this video demonstrates how the web app works locally._
 
