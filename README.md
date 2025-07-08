@@ -1,17 +1,17 @@
-# 🏡 House Price Prediction – ML Project
+#  House Price Prediction – ML Project
 
 A machine learning web app that predicts house prices based on key features like location, area, number of bedrooms, and more. Built with Python, scikit-learn, and Flask. The UI is implemented using HTML. The project includes a Jupyter notebook showcasing data preprocessing, model training, and evaluation.
 
 
-## 🚀 Demo
+##  Demo
 
-🎥 Click Watch Demo to watch the demo video (hosted Google Drive):
+ Click Watch Demo to watch the demo video (hosted Google Drive):
 [[Watch Demo]](https://drive.google.com/file/d/1e2Z2ydFXxERD9LWyNPlzQNDiNAUGjUqG/view?usp=sharing)
 
 > 💡 _Not deployed live — this video demonstrates how the web app works locally._
 
 
-## 🧠 Features Used
+##  Features Used
 
 - Location (One-Hot Encoded)
 - Area (in square feet)
@@ -22,7 +22,7 @@ A machine learning web app that predicts house prices based on key features like
 
 
 
-## 🧪 Model Info
+##  Model Info
 
 - **Algorithm:** Ridge Regression  
 - **Performance Metric:** R² Score  
@@ -31,7 +31,7 @@ A machine learning web app that predicts house prices based on key features like
 
 
 
-## 🛠️ How to Run the Project
+##  How to Run the Project
 
 1. **Clone the repository**  
    ```bash
@@ -50,10 +50,10 @@ A machine learning web app that predicts house prices based on key features like
      python main.py
 5. **Open your browser** and go to http://127.0.0.1:5000
 
-## 📦 Deployment
+##  Deployment
 Not deployed online. Please watch the demo video above to see how it works locally.
 
-## 🙋‍♀️ Author - Tripti 
+
 
 
 
